@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>レッスン - Camera Roll to Vlog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo-link" aria-label="トップページへ">
+        <div class="logo-mark" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="16" stroke="#111" stroke-width="1.5" fill="none"/>
+            <polygon points="10,10 10,26 15,21 18,27 20,26 17,20 23,20" fill="#111"/>
+          </svg>
+        </div>
+        <span class="logo-text">Camera Roll<br /><em>to Vlog</em></span>
+      </a>
+      <nav class="header-nav" aria-label="メインナビゲーション">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">HOME</a></li>
+          <li><a href="lesson.html" class="nav-link is-current" aria-current="page">レッスン</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn--ghost btn--sm" id="shortcutBtn" aria-haspopup="dialog" aria-controls="shortcutModal">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 8h2M14 8h2M6 12h4M14 12h4M8 16h8"/></svg>
+          ショートカット
+        </button>
+        <a href="faq.html" class="btn btn--ghost btn--sm">困ったとき</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html" class="mobile-nav-link">HOME</a></li>
+        <li><a href="lesson.html" class="mobile-nav-link">レッスン</a></li>
+        <li><a href="faq.html" class="mobile-nav-link">FAQ</a></li>
+        <li><button class="mobile-nav-link mobile-nav-link--btn" id="shortcutBtnMobile">ショートカット一覧</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-layout lesson-page" id="lessons">
+    <div class="page-layout__inner">
+      <main class="main-content" id="mainContent" role="main">
+        <section class="lesson-intro fade-in" aria-labelledby="lesson-main-title">
+          <span class="section-label">WORKING LESSON</span>
+          <h1 id="lesson-main-title">写真フォルダからVlogを作る6つの工程</h1>
+          <p>Premiere Proで作業しながら横に置くためのページです。各レッスンを順番に読み、必要なところは何度でも戻って確認してください。</p>
+        </section>
+
+        <section class="lesson-section fade-in" id="lesson-01" data-lesson-number="1" aria-labelledby="lesson-01-title">
+          <div class="lesson-header">
+            <span class="lesson-num">LESSON 01</span>
+            <h2 class="lesson-title" id="lesson-01-title">今日つくるVlogを決める</h2>
+          </div>
+          <div class="lesson-meta-grid">
+            <div><span>このレッスンでやること</span><p>写真フォルダを眺めながら、今日作るVlogのテーマと長さを決めます。</p></div>
+            <div><span>できるようになること</span><p>素材選びで迷いすぎず、1本の動画にまとめる軸を作れます。</p></div>
+            <div><span>作業時間の目安</span><p>10〜15分</p></div>
+          </div>
+          <ol class="step-list" aria-label="手順">
+            <li class="step-item"><span class="step-num">01</span><div class="step-content"><h3 class="step-title">写真フォルダをざっと見る</h3><p>最近の写真や動画を開き、「旅行」「カフェ」「散歩」「1日の記録」など、まとめやすそうなまとまりを探します。</p></div></li>
+            <li class="step-item"><span class="step-num">02</span><div class="step-content"><h3 class="step-title">Vlogのひとことテーマを決める</h3><p>例として「週末の小旅行」「友達と過ごした午後」のように、動画の雰囲気を一文で言える形にします。</p></div></li>
+            <li class="step-item"><span class="step-num">03</span><div class="step-content"><h3 class="step-title">完成尺を決める</h3><p>最初は15〜30秒を目安にします。短い尺にすると、素材選びと編集の判断がしやすくなります。</p></div></li>
+          </ol>
+          <div class="media-placeholder"><div class="media-placeholder__inner"><p>ここに入れる予定：スマホの写真フォルダからVlogテーマを決める流れのスクリーンショット</p></div></div>
+          <div class="trouble-box"><h3>つまずきポイント</h3><p>テーマが決まらないときは、完璧な出来事を探すより「見返したい時間」を1つ選びましょう。</p></div>
+          <div class="mini-check"><h3>ミニチェック</h3><ul><li>今日作るテーマが一文で言える</li><li>完成尺の目安が決まっている</li><li>使いたい素材の範囲がなんとなく見えている</li></ul></div>
+          <div class="lesson-nav"><span class="lesson-nav__prev lesson-nav__prev--disabled" aria-disabled="true">前のレッスン</span><a href="#lesson-02" class="lesson-nav__next">次のレッスン</a></div>
+        </section>
+
+        <section class="lesson-section fade-in" id="lesson-02" data-lesson-number="2" aria-labelledby="lesson-02-title">
+          <div class="lesson-header">
+            <span class="lesson-num">LESSON 02</span>
+            <h2 class="lesson-title" id="lesson-02-title">写真フォルダから素材を選ぶ</h2>
+          </div>
+          <div class="lesson-meta-grid">
+            <div><span>このレッスンでやること</span><p>Vlogに使う写真・動画を選び、PCへ移しやすい状態にします。</p></div>
+            <div><span>できるようになること</span><p>入れすぎを防ぎ、編集しやすい素材セットを作れます。</p></div>
+            <div><span>作業時間の目安</span><p>15〜25分</p></div>
+          </div>
+          <ol class="step-list" aria-label="手順">
+            <li class="step-item"><span class="step-num">01</span><div class="step-content"><h3 class="step-title">主役になる素材を3〜5個選ぶ</h3><p>その日の雰囲気が伝わる動画や写真を先に選びます。迷ったら動画を優先するとVlogらしくなります。</p></div></li>
+            <li class="step-item"><span class="step-num">02</span><div class="step-content"><h3 class="step-title">つなぎ素材を選ぶ</h3><p>空、道、手元、食べ物、移動中の短い動画など、場面転換に使える素材を足します。</p></div></li>
+            <li class="step-item"><span class="step-num">03</span><div class="step-content"><h3 class="step-title">PCにまとめて移す</h3><p>同じフォルダに入れて、ファイル名や保存場所をあとで探しやすいようにしておきます。</p></div></li>
+          </ol>
+          <div class="media-placeholder media-placeholder--gif"><div class="media-placeholder__inner"><p>ここに入れる予定：スマホからPCへ写真・動画を移す手順の5秒GIF</p><span class="media-badge">GIF / 動画</span></div></div>
+          <div class="trouble-box"><h3>つまずきポイント</h3><p>素材が多すぎるときは、似た写真を1枚だけ残します。最初のVlogは10〜20素材くらいでも十分です。</p></div>
+          <div class="mini-check"><h3>ミニチェック</h3><ul><li>主役素材が選べている</li><li>つなぎ素材が数個ある</li><li>素材を1つのフォルダにまとめた</li></ul></div>
+          <div class="lesson-nav"><a href="#lesson-01" class="lesson-nav__prev">前のレッスン</a><a href="#lesson-03" class="lesson-nav__next">次のレッスン</a></div>
+        </section>
+
+        <section class="lesson-section fade-in" id="lesson-03" data-lesson-number="3" aria-labelledby="lesson-03-title">
+          <div class="lesson-header">
+            <span class="lesson-num">LESSON 03</span>
+            <h2 class="lesson-title" id="lesson-03-title">Premiere Proに素材を読み込む</h2>
+          </div>
+          <div class="lesson-meta-grid">
+            <div><span>このレッスンでやること</span><p>新規プロジェクトを作り、選んだ素材をPremiere Proに読み込みます。</p></div>
+            <div><span>できるようになること</span><p>編集前のプロジェクトと素材を迷子にせず管理できます。</p></div>
+            <div><span>作業時間の目安</span><p>10〜20分</p></div>
+          </div>
+          <ol class="step-list" aria-label="手順">
+            <li class="step-item"><span class="step-num">01</span><div class="step-content"><h3 class="step-title">新規プロジェクトを作る</h3><p>Premiere Proを開き、Vlogのテーマがわかる名前でプロジェクトを作成します。</p></div></li>
+            <li class="step-item"><span class="step-num">02</span><div class="step-content"><h3 class="step-title">素材フォルダを読み込む</h3><p>プロジェクトパネルへ素材フォルダをドラッグするか、「ファイル > 読み込み」から追加します。</p></div></li>
+            <li class="step-item"><span class="step-num">03</span><div class="step-content"><h3 class="step-title">縦型シーケンスを作る</h3><p>スマホVlogは1080×1920の9:16を基本にします。最初の縦動画からシーケンスを作ると設定しやすいです。</p></div></li>
+          </ol>
+          <div class="media-placeholder"><div class="media-placeholder__inner"><p>ここに入れる予定：Premiere Proで素材フォルダを読み込む画面のスクリーンショット</p></div></div>
+          <div class="trouble-box"><h3>つまずきポイント</h3><p>素材の場所を移動すると「メディアオフライン」になりやすいです。編集中は素材フォルダを動かさないようにします。</p></div>
+          <div class="mini-check"><h3>ミニチェック</h3><ul><li>プロジェクト名がわかりやすい</li><li>素材がプロジェクトパネルに入っている</li><li>縦型シーケンスを作成した</li></ul></div>
+          <div class="shortcut-row"><span class="shortcut-label">よく使うショートカット</span><div class="shortcut-keys"><kbd class="key-badge">⌘</kbd><span class="key-sep">+</span><kbd class="key-badge">I</kbd><span class="shortcut-desc">素材を読み込む</span></div></div>
+          <div class="lesson-nav"><a href="#lesson-02" class="lesson-nav__prev">前のレッスン</a><a href="#lesson-04" class="lesson-nav__next">次のレッスン</a></div>
+        </section>
+
+        <section class="lesson-section fade-in" id="lesson-04" data-lesson-number="4" aria-labelledby="lesson-04-title">
+          <div class="lesson-header">
+            <span class="lesson-num">LESSON 04</span>
+            <h2 class="lesson-title" id="lesson-04-title">タイムラインに並べて流れを作る</h2>
+          </div>
+          <div class="lesson-meta-grid">
+            <div><span>このレッスンでやること</span><p>素材をタイムラインに並べ、Vlogの始まりから終わりまでの流れを作ります。</p></div>
+            <div><span>できるようになること</span><p>素材の順番と長さを調整して、見やすいテンポを作れます。</p></div>
+            <div><span>作業時間の目安</span><p>25〜40分</p></div>
+          </div>
+          <ol class="step-list" aria-label="手順">
+            <li class="step-item"><span class="step-num">01</span><div class="step-content"><h3 class="step-title">始まりの素材を置く</h3><p>場所や雰囲気が伝わる素材を最初に置きます。タイトルを入れる予定があれば少し余白を残します。</p></div></li>
+            <li class="step-item"><span class="step-num">02</span><div class="step-content"><h3 class="step-title">時系列か気持ちの流れで並べる</h3><p>初心者は時系列が作りやすいです。慣れてきたら、盛り上がる場面を中心に並べても構いません。</p></div></li>
+            <li class="step-item"><span class="step-num">03</span><div class="step-content"><h3 class="step-title">長すぎる部分を短くする</h3><p>1つのカットは1〜3秒を目安にし、動きがない部分や迷う部分は短くします。</p></div></li>
+          </ol>
+          <div class="media-placeholder media-placeholder--gif"><div class="media-placeholder__inner"><p>ここに入れる予定：Premiere Proで素材をタイムラインにドラッグする5秒GIF</p><span class="media-badge">GIF / 動画</span></div></div>
+          <div class="trouble-box"><h3>つまずきポイント</h3><p>再生が重いときはプレビュー解像度を1/2や1/4に下げます。細かい調整は軽くしてから進めましょう。</p></div>
+          <div class="mini-check"><h3>ミニチェック</h3><ul><li>始まりと終わりの素材が決まった</li><li>タイムラインに全体の流れがある</li><li>長すぎるカットを短くした</li></ul></div>
+          <div class="shortcut-row"><span class="shortcut-label">よく使うショートカット</span><div class="shortcut-keys"><kbd class="key-badge">C</kbd><span class="shortcut-desc">カットツール</span></div><div class="shortcut-keys"><kbd class="key-badge">V</kbd><span class="shortcut-desc">選択ツール</span></div></div>
+          <div class="lesson-nav"><a href="#lesson-03" class="lesson-nav__prev">前のレッスン</a><a href="#lesson-05" class="lesson-nav__next">次のレッスン</a></div>
+        </section>
+
+        <section class="lesson-section fade-in" id="lesson-05" data-lesson-number="5" aria-labelledby="lesson-05-title">
+          <div class="lesson-header">
+            <span class="lesson-num">LESSON 05</span>
+            <h2 class="lesson-title" id="lesson-05-title">BGM・文字・色で“いい感じ”に整える</h2>
+          </div>
+          <div class="lesson-meta-grid">
+            <div><span>このレッスンでやること</span><p>BGM、短い文字、色調整を足して、見返したくなる雰囲気に整えます。</p></div>
+            <div><span>できるようになること</span><p>やりすぎず、思い出の雰囲気を引き立てる仕上げができます。</p></div>
+            <div><span>作業時間の目安</span><p>25〜45分</p></div>
+          </div>
+          <ol class="step-list" aria-label="手順">
+            <li class="step-item"><span class="step-num">01</span><div class="step-content"><h3 class="step-title">BGMを入れて音量を下げる</h3><p>音楽をA1トラックに置き、会話や環境音がある場合は邪魔にならない音量にします。</p></div></li>
+            <li class="step-item"><span class="step-num">02</span><div class="step-content"><h3 class="step-title">文字を少なめに入れる</h3><p>日付、場所、短いひとことなど、映像の邪魔にならない文字だけを入れます。</p></div></li>
+            <li class="step-item"><span class="step-num">03</span><div class="step-content"><h3 class="step-title">明るさと色を整える</h3><p>Lumetriカラーで少し明るくし、必要なら彩度やコントラストを軽く調整します。</p></div></li>
+          </ol>
+          <div class="media-placeholder"><div class="media-placeholder__inner"><p>ここに入れる予定：BGM音量、テキスト、Lumetriカラーを調整する画面のスクリーンショット</p></div></div>
+          <div class="trouble-box"><h3>つまずきポイント</h3><p>BGMが大きすぎると映像の記憶より音楽が主役になります。まずは少し小さめにして、あとから調整します。</p></div>
+          <div class="mini-check"><h3>ミニチェック</h3><ul><li>BGMが映像を邪魔していない</li><li>文字が読みやすく、入れすぎていない</li><li>暗すぎる素材を調整した</li></ul></div>
+          <div class="shortcut-row"><span class="shortcut-label">よく使うショートカット</span><div class="shortcut-keys"><kbd class="key-badge">T</kbd><span class="shortcut-desc">テキストツール</span></div><div class="shortcut-keys"><kbd class="key-badge">Space</kbd><span class="shortcut-desc">再生 / 一時停止</span></div></div>
+          <div class="lesson-nav"><a href="#lesson-04" class="lesson-nav__prev">前のレッスン</a><a href="#lesson-06" class="lesson-nav__next">次のレッスン</a></div>
+        </section>
+
+        <section class="lesson-section fade-in" id="lesson-06" data-lesson-number="6" aria-labelledby="lesson-06-title">
+          <div class="lesson-header">
+            <span class="lesson-num">LESSON 06</span>
+            <h2 class="lesson-title" id="lesson-06-title">書き出して、完成したVlogを見返す</h2>
+          </div>
+          <div class="lesson-meta-grid">
+            <div><span>このレッスンでやること</span><p>完成したVlogを書き出し、スマホやPCで見返して最終確認します。</p></div>
+            <div><span>できるようになること</span><p>投稿先やスマホで見やすい縦型動画として保存できます。</p></div>
+            <div><span>作業時間の目安</span><p>15〜30分</p></div>
+          </div>
+          <ol class="step-list" aria-label="手順">
+            <li class="step-item"><span class="step-num">01</span><div class="step-content"><h3 class="step-title">最初から最後まで再生する</h3><p>文字切れ、音量差、黒い画面、余分なカットがないか確認します。</p></div></li>
+            <li class="step-item"><span class="step-num">02</span><div class="step-content"><h3 class="step-title">書き出し設定を開く</h3><p>「ファイル > 書き出し > メディア」を開き、H.264形式を選びます。</p></div></li>
+            <li class="step-item"><span class="step-num">03</span><div class="step-content"><h3 class="step-title">書き出した動画を見返す</h3><p>書き出し後はPremiere Pro上ではなく、完成した動画ファイルを開いて確認します。</p></div></li>
+          </ol>
+          <div class="media-placeholder"><div class="media-placeholder__inner"><p>ここに入れる予定：Premiere Proの書き出し設定画面と完成動画を見返す流れのスクリーンショット</p></div></div>
+          <div class="trouble-box"><h3>つまずきポイント</h3><p>書き出し先がわからなくならないよう、デスクトップや専用フォルダなど見つけやすい場所を指定します。</p></div>
+          <div class="mini-check"><h3>ミニチェック</h3><ul><li>最後まで再生確認した</li><li>H.264形式で書き出した</li><li>完成ファイルを開いて見返した</li></ul></div>
+          <div class="shortcut-row"><span class="shortcut-label">よく使うショートカット</span><div class="shortcut-keys"><kbd class="key-badge">⌘</kbd><span class="key-sep">+</span><kbd class="key-badge">M</kbd><span class="shortcut-desc">書き出しメニュー</span></div></div>
+          <div class="lesson-nav"><a href="#lesson-05" class="lesson-nav__prev">前のレッスン</a><a href="faq.html" class="lesson-nav__next">FAQを見る</a></div>
+        </section>
+      </main>
+
+      <aside class="sidebar" id="sidebar" aria-label="レッスンサイドバー">
+        <div class="sidebar-card">
+          <div class="sidebar-card__header"><span>現在の工程</span></div>
+          <p class="current-step" id="currentStep">LESSON 01 今日つくるVlogを決める</p>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card__header"><span>自動進捗</span></div>
+          <div class="progress-display">
+            <div class="progress-count" id="progressCount">1 / 6</div>
+            <div class="progress-num" id="progressNum" aria-live="polite">約16%</div>
+            <div class="progress-bar-wrap" role="progressbar" aria-valuenow="16" aria-valuemin="0" aria-valuemax="100" aria-label="Vlog制作の現在地">
+              <div class="progress-bar-fill" id="progressBarFill" style="width:16%"></div>
+            </div>
+            <p class="progress-text">いま見ているレッスンをもとに更新されます。</p>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card__header"><span>コース目次</span></div>
+          <nav aria-label="コース目次">
+            <ul class="toc-list" id="tocList">
+              <li class="toc-item is-active" data-target="lesson-01"><span class="toc-check">01</span><a href="#lesson-01" class="toc-link">今日つくるVlogを決める</a></li>
+              <li class="toc-item" data-target="lesson-02"><span class="toc-check">02</span><a href="#lesson-02" class="toc-link">写真フォルダから素材を選ぶ</a></li>
+              <li class="toc-item" data-target="lesson-03"><span class="toc-check">03</span><a href="#lesson-03" class="toc-link">Premiere Proに素材を読み込む</a></li>
+              <li class="toc-item" data-target="lesson-04"><span class="toc-check">04</span><a href="#lesson-04" class="toc-link">タイムラインに並べる</a></li>
+              <li class="toc-item" data-target="lesson-05"><span class="toc-check">05</span><a href="#lesson-05" class="toc-link">BGM・文字・色で整える</a></li>
+              <li class="toc-item" data-target="lesson-06"><span class="toc-check">06</span><a href="#lesson-06" class="toc-link">書き出して見返す</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card__header"><span>ガイドのひとこと</span></div>
+          <p class="guide-message" id="guideMessage">まずは編集ソフトを触る前に、どんな思い出を1本にするか決めましょう。</p>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card__header"><span>困ったときリンク</span></div>
+          <ul class="sidebar-link-list">
+            <li><a href="faq.html#rescue">レスキューを見る</a></li>
+            <li><a href="faq.html#glossary">用語集を見る</a></li>
+            <li><a href="faq.html#export-check">書き出し前チェック</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="shortcutModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">ショートカット一覧</h2>
+        <button class="modal-close" id="modalClose" aria-label="モーダルを閉じる">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-note">ESC キーでも閉じられます。Mac は ⌘、Windowsは Ctrl に読み替えてください。</p>
+        <div class="shortcut-table-wrap">
+          <h3 class="shortcut-category">基本操作</h3>
+          <table class="shortcut-table" aria-label="基本操作のショートカット">
+            <thead><tr><th>操作</th><th>ショートカット</th></tr></thead>
+            <tbody>
+              <tr><td>保存</td><td><kbd class="key-badge">⌘</kbd> + <kbd class="key-badge">S</kbd></td></tr>
+              <tr><td>元に戻す</td><td><kbd class="key-badge">⌘</kbd> + <kbd class="key-badge">Z</kbd></td></tr>
+              <tr><td>素材を読み込む</td><td><kbd class="key-badge">⌘</kbd> + <kbd class="key-badge">I</kbd></td></tr>
+              <tr><td>書き出し</td><td><kbd class="key-badge">⌘</kbd> + <kbd class="key-badge">M</kbd></td></tr>
+            </tbody>
+          </table>
+          <h3 class="shortcut-category">編集操作</h3>
+          <table class="shortcut-table" aria-label="編集操作のショートカット">
+            <thead><tr><th>操作</th><th>ショートカット</th></tr></thead>
+            <tbody>
+              <tr><td>選択ツール</td><td><kbd class="key-badge">V</kbd></td></tr>
+              <tr><td>カットツール</td><td><kbd class="key-badge">C</kbd></td></tr>
+              <tr><td>テキストツール</td><td><kbd class="key-badge">T</kbd></td></tr>
+              <tr><td>再生 / 一時停止</td><td><kbd class="key-badge">Space</kbd></td></tr>
+              <tr><td>クリップをカット</td><td><kbd class="key-badge">⌘</kbd> + <kbd class="key-badge">K</kbd></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <span class="footer-logo__title">Camera Roll to Vlog</span>
+          <p class="footer-logo__desc">写真フォルダから、はじめる動画編集</p>
+        </div>
+        <nav class="footer-nav" aria-label="サイトマップ">
+          <ul class="footer-nav-list">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="lesson.html">レッスン</a></li>
+            <li><a href="faq.html">FAQ・レスキュー・用語集</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Camera Roll to Vlog.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

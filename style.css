@@ -261,7 +261,7 @@ code {
   font-size: var(--fs-sm);
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 .logo-text em {
   font-style: normal;
@@ -286,6 +286,10 @@ code {
 .nav-link:hover {
   color: var(--color-black);
   opacity: 1;
+}
+.nav-link.is-current {
+  color: var(--color-black);
+  font-weight: 700;
 }
 
 /* ヘッダーアクションボタン群 */
@@ -409,7 +413,7 @@ code {
   font-size: clamp(var(--fs-2xl), 5vw, var(--fs-3xl));
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   margin-bottom: var(--space-4);
 }
 .hero__title span {
@@ -442,6 +446,26 @@ code {
   gap: var(--space-3);
   font-size: var(--fs-sm);
   color: var(--color-text-secondary);
+}
+
+.check-mark {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--color-black);
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+}
+.check-mark::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 2px;
+  width: 5px;
+  height: 8px;
+  border: solid var(--color-black);
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
 }
 
 /* ヒーロー装飾ボックス */
@@ -483,6 +507,117 @@ code {
   background-color: var(--color-black);
   border-radius: 99px;
   transition: width 0.8s ease;
+}
+
+.camera-roll-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin: var(--space-2) 0 var(--space-5);
+}
+.camera-roll-grid span {
+  aspect-ratio: 1;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+/* =============================================
+   7.5 トップページセクション
+   ============================================= */
+.home-section {
+  padding: var(--space-16) 0;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.home-section--surface {
+  background-color: var(--color-surface);
+}
+
+.section-heading {
+  margin-bottom: var(--space-8);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  margin-bottom: var(--space-2);
+}
+
+.section-heading h2,
+.lesson-intro h1 {
+  font-size: var(--fs-xl);
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.info-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+}
+
+.info-card h3 {
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-3);
+}
+
+.info-card p,
+.simple-list li,
+.flow-list li {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+}
+
+.simple-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+.simple-list li {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+
+.flow-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  counter-reset: none;
+}
+.flow-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+}
+.flow-list span {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
+.home-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
 }
 
 /* =============================================
@@ -534,7 +669,7 @@ code {
 .lesson-title {
   font-size: var(--fs-xl);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   line-height: 1.2;
   padding-bottom: var(--space-4);
   border-bottom: 1px solid var(--color-border);
@@ -545,6 +680,57 @@ code {
   color: var(--color-text-secondary);
   margin-bottom: var(--space-8);
   line-height: 1.8;
+}
+
+.lesson-intro {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-10);
+  margin: var(--space-12) auto var(--space-8);
+  max-width: var(--max-width);
+}
+
+.lesson-page .lesson-intro {
+  margin-top: 0;
+}
+
+.faq-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--space-8) var(--space-20);
+}
+
+.lesson-intro p {
+  color: var(--color-text-secondary);
+  margin-top: var(--space-4);
+}
+
+.lesson-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.lesson-meta-grid div {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+
+.lesson-meta-grid span {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--color-muted);
+  margin-bottom: var(--space-2);
+}
+
+.lesson-meta-grid p {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
 }
 
 /* ===== 手順リスト ===== */
@@ -609,6 +795,10 @@ code {
   font-size: var(--fs-sm);
 }
 
+.media-placeholder__inner p {
+  max-width: 460px;
+}
+
 /* GIF/動画エリアは少し高さを広げる */
 .media-placeholder--gif .media-placeholder__inner {
   padding: var(--space-16) var(--space-8);
@@ -648,6 +838,63 @@ code {
   font-size: var(--fs-sm);
   color: var(--color-text-secondary);
   line-height: 1.8;
+}
+
+.trouble-box,
+.mini-check {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5) var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.trouble-box {
+  background-color: var(--color-surface);
+  border-left: 3px solid var(--color-black);
+}
+
+.trouble-box h3,
+.mini-check h3 {
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-3);
+}
+
+.trouble-box p {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+}
+
+.mini-check {
+  background-color: var(--color-white);
+}
+
+.mini-check ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.mini-check li {
+  position: relative;
+  padding-left: var(--space-6);
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+}
+
+.mini-check li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 2px;
+  background-color: var(--color-white);
+}
+
+.mini-check--large {
+  margin-bottom: 0;
 }
 
 /* ===== ショートカットキーUI ===== */
@@ -835,47 +1082,6 @@ code {
   line-height: 1.8;
 }
 
-/* ===== お問い合わせフォーム ===== */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.form-label {
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  color: var(--color-text-primary);
-}
-
-.form-input,
-.form-textarea {
-  font-family: var(--font-base);
-  font-size: var(--fs-sm);
-  color: var(--color-text-primary);
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  padding: var(--space-3) var(--space-4);
-  transition: border-color var(--transition);
-  width: 100%;
-}
-.form-input:focus,
-.form-textarea:focus {
-  outline: none;
-  border-color: var(--color-black);
-}
-.form-textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
 /* =============================================
    10. サイドバー
    ============================================= */
@@ -929,7 +1135,14 @@ code {
   font-size: var(--fs-xl);
   font-weight: 700;
   font-family: var(--font-mono);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
+}
+
+.progress-count,
+.current-step {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--color-text-primary);
 }
 
 .progress-bar-wrap {
@@ -979,12 +1192,8 @@ code {
   font-size: var(--fs-xs);
   font-family: var(--font-mono);
   color: var(--color-muted);
-  min-width: 16px;
+  min-width: 20px;
   text-align: center;
-}
-.toc-item.is-done .toc-check {
-  color: var(--color-black);
-  font-weight: 700;
 }
 
 .toc-link {
@@ -1045,6 +1254,45 @@ code {
   font-size: var(--fs-xs);
   color: var(--color-text-secondary);
   line-height: 1.7;
+}
+
+.guide-message,
+.sidebar-link-list a {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+}
+
+.sidebar-link-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sidebar-link-list a:hover {
+  color: var(--color-black);
+  opacity: 1;
+}
+
+.glossary-list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.glossary-list div {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+}
+
+.glossary-list dt {
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.glossary-list dd {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
 }
 
 /* =============================================
@@ -1201,7 +1449,7 @@ code {
 
 .footer-top {
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-12);
   margin-bottom: var(--space-12);
   padding-bottom: var(--space-12);
@@ -1213,7 +1461,7 @@ code {
   display: block;
   font-size: var(--fs-md);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   margin-bottom: var(--space-3);
 }
 
@@ -1252,37 +1500,6 @@ code {
 }
 .footer-subnav a:hover { color: var(--color-white); opacity: 1; }
 
-/* フッターSNS */
-.footer-sns__label {
-  font-size: var(--fs-xs);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: var(--space-4);
-}
-
-.footer-sns__links {
-  display: flex;
-  gap: var(--space-3);
-}
-
-.sns-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: var(--radius-sm);
-  color: rgba(255,255,255,0.7);
-  transition: background-color var(--transition), color var(--transition);
-}
-.sns-link:hover {
-  background-color: rgba(255,255,255,0.1);
-  color: var(--color-white);
-  opacity: 1;
-}
-
 /* コピーライト */
 .footer-bottom {
   text-align: center;
@@ -1319,6 +1536,29 @@ code {
   }
   .hero__deco { display: none; } /* モバイルでは装飾を非表示 */
 
+  .home-section {
+    padding: var(--space-10) 0;
+  }
+  .container {
+    padding: 0 var(--space-5);
+  }
+  .feature-grid,
+  .simple-list,
+  .flow-list,
+  .lesson-meta-grid {
+    grid-template-columns: 1fr;
+  }
+  .flow-list li {
+    align-items: flex-start;
+  }
+  .home-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .home-cta .btn {
+    justify-content: center;
+  }
+
   /* 2カラム → 1カラム */
   .page-layout {
     padding: var(--space-8) var(--space-5) var(--space-12);
@@ -1337,6 +1577,20 @@ code {
   /* レッスンセクションの余白を縮小 */
   .lesson-section {
     padding: var(--space-6) var(--space-5);
+  }
+
+  .lesson-intro {
+    margin: var(--space-8) var(--space-5);
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .faq-page {
+    padding: 0 var(--space-5) var(--space-12);
+  }
+
+  .faq-page .lesson-intro {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   /* まとめグリッドを2カラムに */

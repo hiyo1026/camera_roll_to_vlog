@@ -5,7 +5,7 @@
  * 実装機能：
  * 1. ハンバーガーメニュー 開閉
  * 2. ショートカット一覧モーダル 開閉（ESCキー対応）
- * 3. スクロール進捗バー 更新
+ * 3. 現在レッスンに応じた進捗表示
  * 4. 現在セクションの 自動ハイライト（目次）
  * 5. アコーディオン UI（FAQ / レスキュー）
  * 6. フェードイン アニメーション（Intersection Observer）
@@ -18,7 +18,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   initHamburger();
   initModal();
-  initScrollProgress();
+  initLessonProgress();
   initTocHighlight();
   initAccordions();
   initFadeIn();
@@ -135,52 +135,99 @@ function initModal() {
 }
 
 /* =============================================
-   4. スクロール進捗バー
+   4. レッスン番号ベースの進捗表示
    ============================================= */
-function initScrollProgress() {
+function initLessonProgress() {
   const progressNum  = document.getElementById("progressNum");
+  const progressCount = document.getElementById("progressCount");
   const progressFill = document.getElementById("progressBarFill");
   const progressBar  = document.querySelector(".progress-bar-wrap");
+  const currentStep  = document.getElementById("currentStep");
+  const guideMessage = document.getElementById("guideMessage");
+
+  const lessons = [
+    {
+      id: "lesson-01",
+      count: "1 / 6",
+      percentage: 16,
+      title: "LESSON 01 今日つくるVlogを決める",
+      guide: "まずは編集ソフトを触る前に、どんな思い出を1本にするか決めましょう。",
+    },
+    {
+      id: "lesson-02",
+      count: "2 / 6",
+      percentage: 33,
+      title: "LESSON 02 写真フォルダから素材を選ぶ",
+      guide: "素材は多すぎなくて大丈夫です。見返したい瞬間を中心に選びましょう。",
+    },
+    {
+      id: "lesson-03",
+      count: "3 / 6",
+      percentage: 50,
+      title: "LESSON 03 Premiere Proに素材を読み込む",
+      guide: "ここからPremiere Proに入ります。素材フォルダは動かさず進めると安心です。",
+    },
+    {
+      id: "lesson-04",
+      count: "4 / 6",
+      percentage: 66,
+      title: "LESSON 04 タイムラインに並べて流れを作る",
+      guide: "完璧な順番を探すより、まず最後まで並べることを優先しましょう。",
+    },
+    {
+      id: "lesson-05",
+      count: "5 / 6",
+      percentage: 83,
+      title: "LESSON 05 BGM・文字・色で整える",
+      guide: "仕上げは少しずつ。音、文字、色のどれか一つだけでも印象は変わります。",
+    },
+    {
+      id: "lesson-06",
+      count: "6 / 6",
+      percentage: 100,
+      title: "LESSON 06 書き出して、完成したVlogを見返す",
+      guide: "完成ファイルを実際に開いて見返すところまでが、今日のゴールです。",
+    },
+  ];
 
   if (!progressNum || !progressFill) return;
 
-  function updateProgress() {
-    // ページ全体の高さからビューポートの高さを引いた値が最大スクロール量
-    const scrollTop    = window.scrollY;
-    const docHeight    = document.documentElement.scrollHeight;
-    const windowHeight = window.innerHeight;
-    const maxScroll    = docHeight - windowHeight;
-
-    // 0〜100 の間でパーセンテージを計算
-    const percentage = maxScroll > 0
-      ? Math.min(100, Math.round((scrollTop / maxScroll) * 100))
-      : 0;
-
-    // 表示を更新
-    progressNum.textContent = `${percentage}%`;
-    progressFill.style.width = `${percentage}%`;
-
-    // aria 属性も更新（スクリーンリーダー対応）
+  function updateProgress(lesson) {
+    progressNum.textContent = lesson.percentage === 100 ? "100%" : `約${lesson.percentage}%`;
+    progressFill.style.width = `${lesson.percentage}%`;
+    if (progressCount) progressCount.textContent = lesson.count;
+    if (currentStep) currentStep.textContent = lesson.title;
+    if (guideMessage) guideMessage.textContent = lesson.guide;
     if (progressBar) {
-      progressBar.setAttribute("aria-valuenow", percentage);
+      progressBar.setAttribute("aria-valuenow", lesson.percentage);
     }
   }
 
-  // スクロールイベントで呼び出す
-  // パフォーマンスのために requestAnimationFrame を使用
-  let ticking = false;
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        updateProgress();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
+  const sections = lessons
+    .map((lesson) => document.getElementById(lesson.id))
+    .filter(Boolean);
 
-  // 初回実行
-  updateProgress();
+  if (!sections.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visibleEntries = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (!visibleEntries.length) return;
+
+      const current = lessons.find((lesson) => lesson.id === visibleEntries[0].target.id);
+      if (current) updateProgress(current);
+    },
+    {
+      rootMargin: "-25% 0px -45% 0px",
+      threshold: [0, 0.25, 0.5, 0.75],
+    }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+  updateProgress(lessons[0]);
 }
 
 /* =============================================
@@ -220,8 +267,12 @@ function initTocHighlight() {
             item.classList.toggle("is-active", isTarget);
           });
 
-          // 過去のセクションに「完了」マークをつける
-          markCompletedSections(id, sectionIds, tocItems);
+          tocItems.forEach((item) => {
+            const link = item.querySelector(".toc-link");
+            if (link) {
+              link.toggleAttribute("aria-current", item.dataset.target === id);
+            }
+          });
         }
       });
     },
@@ -233,28 +284,6 @@ function initTocHighlight() {
   );
 
   sections.forEach((section) => observer.observe(section));
-
-  /**
-   * 現在地より前のセクションを「完了済み」としてマーク
-   */
-  function markCompletedSections(currentId, ids, items) {
-    const currentIndex = ids.indexOf(currentId);
-    items.forEach((item, idx) => {
-      const check = item.querySelector(".toc-check");
-      if (idx < currentIndex) {
-        item.classList.add("is-done");
-        if (check) check.textContent = "✓";
-        if (check) check.setAttribute("aria-label", "完了");
-      } else {
-        // 現在地以降は未完了に戻す（ページを上に戻したとき）
-        if (idx > currentIndex) {
-          item.classList.remove("is-done");
-          if (check) check.textContent = "";
-          if (check) check.setAttribute("aria-label", "未完了");
-        }
-      }
-    });
-  }
 }
 
 /* =============================================

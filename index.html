@@ -4,73 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Camera Roll to Vlog - 写真フォルダからはじめる動画編集</title>
-
-  <!-- Google Fonts: Noto Sans JP -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- スタイルシート -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- =============================================
-       ヘッダー（固定・sticky）
-  ============================================== -->
   <header class="site-header" role="banner">
     <div class="header-inner">
-
-      <!-- ロゴ + サイト名 -->
-      <a href="#hero" class="logo-link" aria-label="トップへ戻る">
+      <a href="index.html" class="logo-link" aria-label="トップページへ">
         <div class="logo-mark" aria-hidden="true">
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="18" cy="18" r="16" stroke="#111" stroke-width="1.5" fill="none"/>
-            <!-- カーソルモチーフ -->
             <polygon points="10,10 10,26 15,21 18,27 20,26 17,20 23,20" fill="#111"/>
           </svg>
         </div>
         <span class="logo-text">Camera Roll<br /><em>to Vlog</em></span>
       </a>
 
-      <!-- メインナビ（PC） -->
       <nav class="header-nav" aria-label="メインナビゲーション">
         <ul class="nav-list">
-          <li><a href="#hero" class="nav-link">HOME</a></li>
-          <li><a href="#lessons" class="nav-link">レッスン</a></li>
-          <li><a href="#contact" class="nav-link">お問い合わせ</a></li>
+          <li><a href="index.html" class="nav-link is-current" aria-current="page">HOME</a></li>
+          <li><a href="lesson.html" class="nav-link">レッスン</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
         </ul>
       </nav>
 
-      <!-- アクションボタン群 -->
       <div class="header-actions">
-        <!-- ショートカット一覧モーダルボタン -->
-        <button
-          class="btn btn--ghost btn--sm"
-          id="shortcutBtn"
-          aria-haspopup="dialog"
-          aria-controls="shortcutModal"
-        >
+        <button class="btn btn--ghost btn--sm" id="shortcutBtn" aria-haspopup="dialog" aria-controls="shortcutModal">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 8h2M14 8h2M6 12h4M14 12h4M8 16h8"/></svg>
           ショートカット
         </button>
-
-        <!-- Q&Aボタン -->
-        <a href="#faq" class="btn btn--ghost btn--sm">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
-          Q&amp;A
-        </a>
-
-        <!-- ハンバーガー（スマホ時） -->
-        <button
-          class="hamburger"
-          id="hamburgerBtn"
-          aria-label="メニューを開く"
-          aria-expanded="false"
-          aria-controls="mobileMenu"
-        >
+        <a href="lesson.html" class="btn btn--primary btn--sm">始める</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu">
           <span class="hamburger__line"></span>
           <span class="hamburger__line"></span>
           <span class="hamburger__line"></span>
@@ -78,728 +43,133 @@
       </div>
     </div>
 
-    <!-- モバイルメニュー -->
     <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <ul class="mobile-nav-list">
-        <li><a href="#hero" class="mobile-nav-link">HOME</a></li>
-        <li><a href="#lessons" class="mobile-nav-link">レッスン</a></li>
-        <li><a href="#contact" class="mobile-nav-link">お問い合わせ</a></li>
-        <li>
-          <button class="mobile-nav-link mobile-nav-link--btn" id="shortcutBtnMobile">
-            ショートカット一覧
-          </button>
-        </li>
-        <li><a href="#faq" class="mobile-nav-link">Q&amp;A</a></li>
+        <li><a href="index.html" class="mobile-nav-link">HOME</a></li>
+        <li><a href="lesson.html" class="mobile-nav-link">レッスン</a></li>
+        <li><a href="faq.html" class="mobile-nav-link">FAQ</a></li>
+        <li><button class="mobile-nav-link mobile-nav-link--btn" id="shortcutBtnMobile">ショートカット一覧</button></li>
       </ul>
     </nav>
   </header>
 
-  <!-- =============================================
-       ヒーローセクション
-  ============================================== -->
-  <section class="hero" id="hero" aria-label="サイト紹介">
-    <div class="hero__inner">
-      <div class="hero__content fade-in">
-        <p class="hero__label">Premiere Pro 初心者向け学習サイト</p>
-        <h1 class="hero__title">Camera Roll<br /><span>to Vlog</span></h1>
-        <p class="hero__copy">写真フォルダから、<em>"いい感じ"</em>のVlogを。</p>
+  <main id="mainContent" role="main">
+    <section class="hero" id="hero" aria-label="サイト紹介">
+      <div class="hero__inner">
+        <div class="hero__content fade-in">
+          <p class="hero__label">Premiere Pro 初心者向け伴走レッスン</p>
+          <h1 class="hero__title">Camera Roll<br /><span>to Vlog</span></h1>
+          <p class="hero__copy">写真フォルダに残っている思い出を、短い縦型Vlogにまとめるための作業ガイドです。</p>
+          <ul class="hero__features" aria-label="このサイトの特徴">
+            <li><span class="check-mark" aria-hidden="true"></span>スマホの写真・動画から始められる</li>
+            <li><span class="check-mark" aria-hidden="true"></span>Premiere Proの画面を横に置いて読める</li>
+            <li><span class="check-mark" aria-hidden="true"></span>6つの工程で完成まで迷いにくい</li>
+          </ul>
+          <a href="lesson.html" class="btn btn--primary btn--lg">
+            レッスンを始める
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
 
-        <ul class="hero__features" aria-label="このサイトの特徴">
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Premiere Pro 初心者でも安心
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            文字ベースで自分のペースで学べる
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            進捗が一目でわかる
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            作業しながら横に置いて使える
-          </li>
+        <div class="hero__deco" aria-hidden="true">
+          <div class="deco-box camera-roll-card">
+            <div class="deco-label">CAMERA ROLL</div>
+            <div class="camera-roll-grid">
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+            <div class="deco-label">VLOG FLOW</div>
+            <div class="deco-item">選ぶ → 並べる → 整える → 書き出す</div>
+            <div class="deco-progress"><div class="deco-bar" style="width:66%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section fade-in" aria-labelledby="can-do-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">WHAT YOU CAN DO</span>
+          <h2 id="can-do-title">このサイトでできること</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="info-card">
+            <h3>今日作るVlogを決める</h3>
+            <p>旅行、カフェ、日常など、手元の素材から作りやすいテーマを選びます。</p>
+          </article>
+          <article class="info-card">
+            <h3>素材を選んで整理する</h3>
+            <p>写真フォルダから必要な写真・動画を選び、編集しやすい状態にします。</p>
+          </article>
+          <article class="info-card">
+            <h3>Premiere Proで完成させる</h3>
+            <p>読み込み、タイムライン配置、BGM、文字、色、書き出しまで進めます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section home-section--surface fade-in" aria-labelledby="recommend-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">FOR BEGINNERS</span>
+          <h2 id="recommend-title">こんな人におすすめ</h2>
+        </div>
+        <ul class="simple-list">
+          <li>スマホで撮った写真や動画がたくさんある</li>
+          <li>Premiere Proを初めて触る、または操作にまだ慣れていない</li>
+          <li>動画を見ながらより、文章を読みながら自分のペースで進めたい</li>
+          <li>スマホでこのサイトを見ながら、PCで編集したい</li>
         </ul>
-
-        <a href="#lessons" class="btn btn--primary btn--lg">
-          レッスンを始める
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
       </div>
+    </section>
 
-      <!-- ヒーロー装飾 -->
-      <div class="hero__deco" aria-hidden="true">
-        <div class="deco-box">
-          <div class="deco-label">LESSON 01</div>
-          <div class="deco-item">前準備</div>
-          <div class="deco-progress">
-            <div class="deco-bar" style="width:100%"></div>
-          </div>
-          <div class="deco-label">LESSON 02</div>
-          <div class="deco-item">素材を整える</div>
-          <div class="deco-progress">
-            <div class="deco-bar" style="width:60%"></div>
-          </div>
-          <div class="deco-label">LESSON 03</div>
-          <div class="deco-item">手を加える</div>
-          <div class="deco-progress">
-            <div class="deco-bar" style="width:0%"></div>
-          </div>
+    <section class="home-section fade-in" aria-labelledby="flow-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">6 STEP FLOW</span>
+          <h2 id="flow-title">完成までの流れ</h2>
+        </div>
+        <ol class="flow-list">
+          <li><span>01</span>今日つくるVlogを決める</li>
+          <li><span>02</span>写真フォルダから素材を選ぶ</li>
+          <li><span>03</span>Premiere Proに素材を読み込む</li>
+          <li><span>04</span>タイムラインに並べて流れを作る</li>
+          <li><span>05</span>BGM・文字・色で“いい感じ”に整える</li>
+          <li><span>06</span>書き出して、完成したVlogを見返す</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="home-section home-section--surface fade-in" aria-labelledby="use-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">WORK SIDE BY SIDE</span>
+          <h2 id="use-title">作業しながら使いやすい理由</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="info-card">
+            <h3>レッスンは1ページ</h3>
+            <p>ページを行き来せず、スクロールだけで作業の流れを確認できます。</p>
+          </article>
+          <article class="info-card">
+            <h3>現在地がわかる</h3>
+            <p>見ているレッスンに応じて、右サイドバーの工程と進捗が自動で変わります。</p>
+          </article>
+          <article class="info-card">
+            <h3>困った時に戻れる</h3>
+            <p>FAQ、レスキュー、用語集、チェックリストを別ページにまとめています。</p>
+          </article>
+        </div>
+        <div class="home-cta">
+          <a href="lesson.html" class="btn btn--primary btn--lg">レッスンを始める</a>
+          <a href="faq.html" class="btn btn--ghost btn--lg">FAQを見る</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- =============================================
-       メインコンテンツ + サイドバー（2カラム）
-  ============================================== -->
-  <div class="page-layout" id="lessons">
-    <div class="page-layout__inner">
-
-      <!-- ==============================
-           メインコンテンツ（左 70%）
-      ============================== -->
-      <main class="main-content" id="mainContent" role="main">
-
-        <!-- ===== LESSON 01: 前準備 ===== -->
-        <section class="lesson-section fade-in" id="lesson-01" aria-labelledby="lesson-01-title">
-          <div class="lesson-header">
-            <span class="lesson-num">LESSON 01</span>
-            <h2 class="lesson-title" id="lesson-01-title">前準備</h2>
-          </div>
-          <p class="lesson-lead">
-            動画編集を始める前に、まずは環境を整えましょう。フォルダ構成を整えるだけで、後の作業がグッとスムーズになります。
-          </p>
-
-          <!-- 手順リスト -->
-          <div class="step-list" aria-label="手順">
-            <div class="step-item">
-              <span class="step-num">01</span>
-              <div class="step-content">
-                <h3 class="step-title">Premiere Pro を起動する</h3>
-                <p>デスクトップまたはアプリ一覧から「Adobe Premiere Pro」を開きます。初回起動時はサインインが必要です。</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-num">02</span>
-              <div class="step-content">
-                <h3 class="step-title">新規プロジェクトを作成する</h3>
-                <p>「新規プロジェクト」をクリックし、プロジェクト名と保存先を設定します。わかりやすい名前（例：<code>vlog_2024_kyoto</code>）をつけておきましょう。</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-num">03</span>
-              <div class="step-content">
-                <h3 class="step-title">フォルダ構成を確認する</h3>
-                <p>素材ファイルはあらかじめ1つのフォルダにまとめておきます。後から整理すると大変なので、最初に整えるのがコツです。</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- ダミー画像エリア -->
-          <div class="media-placeholder" aria-label="スクリーンショット例">
-            <div class="media-placeholder__inner">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <p>スクリーンショット：新規プロジェクト作成画面</p>
-            </div>
-          </div>
-
-          <!-- 補足コラム -->
-          <div class="column-box" role="note">
-            <div class="column-box__header">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              <span>補足</span>
-            </div>
-            <p>プロジェクトファイル（<code>.prproj</code>）は素材ファイルと同じフォルダに保存すると管理しやすくなります。クラウドストレージには直接保存しないようにしましょう（処理が重くなる場合があります）。</p>
-          </div>
-
-          <!-- ショートカットキー -->
-          <div class="shortcut-row" aria-label="このレッスンのショートカット">
-            <span class="shortcut-label">よく使うショートカット</span>
-            <div class="shortcut-keys">
-              <kbd class="key-badge">⌘</kbd>
-              <span class="key-sep">+</span>
-              <kbd class="key-badge">N</kbd>
-              <span class="shortcut-desc">新規プロジェクト</span>
-            </div>
-          </div>
-
-          <!-- 前後ページボタン -->
-          <div class="lesson-nav">
-            <span class="lesson-nav__prev lesson-nav__prev--disabled" aria-disabled="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-              前のレッスン
-            </span>
-            <a href="#lesson-02" class="lesson-nav__next">
-              次のレッスン
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
-          </div>
-        </section>
-
-        <!-- ===== LESSON 02: 素材を整える ===== -->
-        <section class="lesson-section fade-in" id="lesson-02" aria-labelledby="lesson-02-title">
-          <div class="lesson-header">
-            <span class="lesson-num">LESSON 02</span>
-            <h2 class="lesson-title" id="lesson-02-title">素材を整える</h2>
-          </div>
-          <p class="lesson-lead">
-            スマホから取り出した写真・動画をPremiere Proに読み込み、タイムラインに並べる基本操作を学びましょう。
-          </p>
-
-          <div class="step-list">
-            <div class="step-item">
-              <span class="step-num">01</span>
-              <div class="step-content">
-                <h3 class="step-title">素材をプロジェクトパネルに読み込む</h3>
-                <p>メニューから「ファイル > 読み込み」またはプロジェクトパネルにドラッグ＆ドロップで素材を追加します。</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-num">02</span>
-              <div class="step-content">
-                <h3 class="step-title">シーケンスを作成する</h3>
-                <p>動画クリップを選んで「新規シーケンス」を作成します。スマホ縦動画なら「9:16」の設定（1080×1920）が基本です。</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-num">03</span>
-              <div class="step-content">
-                <h3 class="step-title">タイムラインに並べる</h3>
-                <p>プロジェクトパネルのクリップをタイムラインにドラッグして並べます。最初は時系列順に並べると編集しやすいです。</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- GIFダミーエリア -->
-          <div class="media-placeholder media-placeholder--gif" aria-label="操作GIF例">
-            <div class="media-placeholder__inner">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.5" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              <p>アニメーション：ドラッグ＆ドロップの操作例</p>
-              <span class="media-badge">GIF / 動画</span>
-            </div>
-          </div>
-
-          <div class="column-box" role="note">
-            <div class="column-box__header">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              <span>ポイント</span>
-            </div>
-            <p>写真（JPG/PNG）はデフォルトで5秒のクリップとして読み込まれます。長さを変えたい場合はクリップの端をドラッグして調整できます。</p>
-          </div>
-
-          <div class="shortcut-row">
-            <span class="shortcut-label">よく使うショートカット</span>
-            <div class="shortcut-keys">
-              <kbd class="key-badge">⌘</kbd>
-              <span class="key-sep">+</span>
-              <kbd class="key-badge">I</kbd>
-              <span class="shortcut-desc">素材を読み込む</span>
-            </div>
-            <div class="shortcut-keys">
-              <kbd class="key-badge">C</kbd>
-              <span class="shortcut-desc">カットツール</span>
-            </div>
-            <div class="shortcut-keys">
-              <kbd class="key-badge">V</kbd>
-              <span class="shortcut-desc">選択ツール</span>
-            </div>
-          </div>
-
-          <div class="lesson-nav">
-            <a href="#lesson-01" class="lesson-nav__prev">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-              前のレッスン
-            </a>
-            <a href="#lesson-03" class="lesson-nav__next">
-              次のレッスン
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
-          </div>
-        </section>
-
-        <!-- ===== LESSON 03: 手を加える ===== -->
-        <section class="lesson-section fade-in" id="lesson-03" aria-labelledby="lesson-03-title">
-          <div class="lesson-header">
-            <span class="lesson-num">LESSON 03</span>
-            <h2 class="lesson-title" id="lesson-03-title">手を加える</h2>
-          </div>
-          <p class="lesson-lead">
-            BGMを追加し、テキストや色調補正でVlogらしい雰囲気を演出しましょう。少しの工夫で一気にクオリティが上がります。
-          </p>
-
-          <div class="step-list">
-            <div class="step-item">
-              <span class="step-num">01</span>
-              <div class="step-content">
-                <h3 class="step-title">BGMを追加する</h3>
-                <p>音楽ファイル（MP3/WAV）をタイムラインのA1トラックにドラッグします。フェードイン・アウトはクリップの角を掴んで調整します。</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-num">02</span>
-              <div class="step-content">
-                <h3 class="step-title">テキストを追加する</h3>
-                <p>「テキストツール（T）」でプログラムモニターをクリックし、テロップを入力します。フォントや色はエッセンシャルグラフィクスパネルで変更できます。</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-num">03</span>
-              <div class="step-content">
-                <h3 class="step-title">色調補正（Lumetriカラー）</h3>
-                <p>「ウィンドウ > Lumetriカラー」を開き、「基本補正」タブでコントラストや彩度を調整します。少し明るめにすると映えやすいです。</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="media-placeholder" aria-label="スクリーンショット例">
-            <div class="media-placeholder__inner">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <p>スクリーンショット：Lumetriカラーパネル</p>
-            </div>
-          </div>
-
-          <div class="column-box" role="note">
-            <div class="column-box__header">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              <span>補足</span>
-            </div>
-            <p>BGMの音量が大きすぎる場合は、クリップを選択して「エフェクトコントロール」パネルの「音量 > レベル」で調整します。一般的に環境音より-6〜-12dBほど下げるとバランスが取れます。</p>
-          </div>
-
-          <div class="shortcut-row">
-            <span class="shortcut-label">よく使うショートカット</span>
-            <div class="shortcut-keys">
-              <kbd class="key-badge">T</kbd>
-              <span class="shortcut-desc">テキストツール</span>
-            </div>
-            <div class="shortcut-keys">
-              <kbd class="key-badge">⌘</kbd>
-              <span class="key-sep">+</span>
-              <kbd class="key-badge">Z</kbd>
-              <span class="shortcut-desc">元に戻す</span>
-            </div>
-          </div>
-
-          <div class="lesson-nav">
-            <a href="#lesson-02" class="lesson-nav__prev">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-              前のレッスン
-            </a>
-            <a href="#lesson-04" class="lesson-nav__next">
-              次のレッスン
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
-          </div>
-        </section>
-
-        <!-- ===== LESSON 04: 最終調整 ===== -->
-        <section class="lesson-section fade-in" id="lesson-04" aria-labelledby="lesson-04-title">
-          <div class="lesson-header">
-            <span class="lesson-num">LESSON 04</span>
-            <h2 class="lesson-title" id="lesson-04-title">最終調整</h2>
-          </div>
-          <p class="lesson-lead">
-            全体の流れを確認して細部を整えます。「プレビュー再生」を繰り返しながら、テンポ感や音量バランスを仕上げましょう。
-          </p>
-
-          <div class="step-list">
-            <div class="step-item">
-              <span class="step-num">01</span>
-              <div class="step-content">
-                <h3 class="step-title">全体を通して再生確認する</h3>
-                <p>最初から最後まで再生し、不自然なカット・テロップのズレ・音のブツ切れがないか確認します。</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-num">02</span>
-              <div class="step-content">
-                <h3 class="step-title">トランジションを追加する</h3>
-                <p>カットとカットの間にトランジション（例：クロスディゾルブ）を入れると滑らかな切り替えになります。エフェクトパネルから「ビデオトランジション」を選択してドラッグします。</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-num">03</span>
-              <div class="step-content">
-                <h3 class="step-title">尺の確認と調整</h3>
-                <p>Short動画は60秒以内が目安です。タイムラインのルーラーで全体の長さを確認し、必要なら短縮します。</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="column-box" role="note">
-            <div class="column-box__header">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              <span>ポイント</span>
-            </div>
-            <p>再生が重い場合は「シーケンス > レンダリング範囲をレンダリング」（Enter キー）でプレビューをレンダリングしてから確認すると快適になります。</p>
-          </div>
-
-          <div class="shortcut-row">
-            <span class="shortcut-label">よく使うショートカット</span>
-            <div class="shortcut-keys">
-              <kbd class="key-badge">Space</kbd>
-              <span class="shortcut-desc">再生 / 一時停止</span>
-            </div>
-            <div class="shortcut-keys">
-              <kbd class="key-badge">Enter</kbd>
-              <span class="shortcut-desc">プレビューレンダリング</span>
-            </div>
-            <div class="shortcut-keys">
-              <kbd class="key-badge">⌘</kbd>
-              <span class="key-sep">+</span>
-              <kbd class="key-badge">S</kbd>
-              <span class="shortcut-desc">保存</span>
-            </div>
-          </div>
-
-          <div class="lesson-nav">
-            <a href="#lesson-03" class="lesson-nav__prev">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-              前のレッスン
-            </a>
-            <a href="#lesson-05" class="lesson-nav__next">
-              次のレッスン
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
-          </div>
-        </section>
-
-        <!-- ===== LESSON 05: 書き出し・投稿 ===== -->
-        <section class="lesson-section fade-in" id="lesson-05" aria-labelledby="lesson-05-title">
-          <div class="lesson-header">
-            <span class="lesson-num">LESSON 05</span>
-            <h2 class="lesson-title" id="lesson-05-title">書き出し・投稿</h2>
-          </div>
-          <p class="lesson-lead">
-            完成した動画をファイルに書き出し、SNSにアップロードします。設定を間違えると画質が落ちるので手順を確認しましょう。
-          </p>
-
-          <div class="step-list">
-            <div class="step-item">
-              <span class="step-num">01</span>
-              <div class="step-content">
-                <h3 class="step-title">書き出しメニューを開く</h3>
-                <p>「ファイル > 書き出し > メディア」（またはショートカット：⌘ + M）でMedia Encoderの書き出し設定を開きます。</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-num">02</span>
-              <div class="step-content">
-                <h3 class="step-title">プリセットを選択する</h3>
-                <p>形式：<strong>H.264</strong>、プリセット：<strong>「Match Source - Adaptive High Bitrate」</strong>を選べば大抵の場合OK。YouTube / Instagram Reels / TikTokいずれにも対応しています。</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-num">03</span>
-              <div class="step-content">
-                <h3 class="step-title">書き出し先を指定して実行</h3>
-                <p>「出力ファイル名」をクリックして保存先を設定し、「書き出し」ボタンをクリックします。ファイルサイズは60秒・縦動画で概ね50〜150MB程度になります。</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="media-placeholder" aria-label="スクリーンショット例">
-            <div class="media-placeholder__inner">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <p>スクリーンショット：書き出し設定画面</p>
-            </div>
-          </div>
-
-          <div class="column-box" role="note">
-            <div class="column-box__header">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              <span>補足</span>
-            </div>
-            <p>Instagram や YouTube Shorts にアップする場合、アプリ側でさらに圧縮が入ります。元ファイルは必ずローカルに保存しておきましょう。</p>
-          </div>
-
-          <div class="shortcut-row">
-            <span class="shortcut-label">よく使うショートカット</span>
-            <div class="shortcut-keys">
-              <kbd class="key-badge">⌘</kbd>
-              <span class="key-sep">+</span>
-              <kbd class="key-badge">M</kbd>
-              <span class="shortcut-desc">書き出しメニューを開く</span>
-            </div>
-          </div>
-
-          <div class="lesson-nav">
-            <a href="#lesson-04" class="lesson-nav__prev">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-              前のレッスン
-            </a>
-            <a href="#lesson-06" class="lesson-nav__next">
-              次のレッスン
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
-          </div>
-        </section>
-
-        <!-- ===== LESSON 06: まとめ・補足 ===== -->
-        <section class="lesson-section fade-in" id="lesson-06" aria-labelledby="lesson-06-title">
-          <div class="lesson-header">
-            <span class="lesson-num">LESSON 06</span>
-            <h2 class="lesson-title" id="lesson-06-title">まとめ・補足</h2>
-          </div>
-          <p class="lesson-lead">
-            全レッスンお疲れさまでした！ここでは学んだことの振り返りと、次のステップへのヒントをまとめます。
-          </p>
-
-          <div class="summary-grid">
-            <div class="summary-card">
-              <div class="summary-card__num">01</div>
-              <div class="summary-card__title">前準備</div>
-              <div class="summary-card__text">プロジェクト作成・フォルダ整理</div>
-            </div>
-            <div class="summary-card">
-              <div class="summary-card__num">02</div>
-              <div class="summary-card__title">素材を整える</div>
-              <div class="summary-card__text">読み込み・タイムライン配置</div>
-            </div>
-            <div class="summary-card">
-              <div class="summary-card__num">03</div>
-              <div class="summary-card__title">手を加える</div>
-              <div class="summary-card__text">BGM・テキスト・色調補正</div>
-            </div>
-            <div class="summary-card">
-              <div class="summary-card__num">04</div>
-              <div class="summary-card__title">最終調整</div>
-              <div class="summary-card__text">再生確認・トランジション</div>
-            </div>
-            <div class="summary-card">
-              <div class="summary-card__num">05</div>
-              <div class="summary-card__title">書き出し</div>
-              <div class="summary-card__text">H.264書き出し・SNS投稿</div>
-            </div>
-            <div class="summary-card summary-card--accent">
-              <div class="summary-card__num">🎉</div>
-              <div class="summary-card__title">完成！</div>
-              <div class="summary-card__text">あなたの最初のVlog</div>
-            </div>
-          </div>
-
-          <div class="column-box" role="note">
-            <div class="column-box__header">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <span>次のステップ</span>
-            </div>
-            <p>基本を身につけたら、「モーショングラフィクス」「マルチカム編集」「オーディオミキシング」など、より高度なテクニックに挑戦してみましょう。まずは1本完成させることが大切です。</p>
-          </div>
-
-          <div class="lesson-nav">
-            <a href="#lesson-05" class="lesson-nav__prev">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-              前のレッスン
-            </a>
-            <a href="#hero" class="lesson-nav__next">
-              最初に戻る
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
-          </div>
-        </section>
-
-        <!-- ===== Q&A セクション ===== -->
-        <section class="lesson-section fade-in" id="faq" aria-labelledby="faq-title">
-          <div class="lesson-header">
-            <span class="lesson-num">FAQ</span>
-            <h2 class="lesson-title" id="faq-title">よくある質問</h2>
-          </div>
-
-          <div class="faq-list" role="list">
-            <!-- アコーディオンアイテム -->
-            <div class="faq-item" role="listitem">
-              <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
-                <span>Premiere Pro が重くて使えません</span>
-                <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="faq-answer" id="faq-answer-1" role="region" hidden>
-                <p>プレビュー解像度を下げてみましょう。プログラムモニター右下の「1/2」や「1/4」ボタンで表示品質を下げると動作が軽くなります。また、使わないアプリを閉じてメモリを確保してください。</p>
-              </div>
-            </div>
-
-            <div class="faq-item" role="listitem">
-              <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
-                <span>書き出したら画質が荒くなりました</span>
-                <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="faq-answer" id="faq-answer-2" role="region" hidden>
-                <p>書き出し設定のプリセットを確認してください。「Match Source - Adaptive High Bitrate」を選んでいない場合、解像度が低い設定になっていることがあります。ビットレートが低すぎても画質が落ちます（縦動画の目安：10〜20 Mbps）。</p>
-              </div>
-            </div>
-
-            <div class="faq-item" role="listitem">
-              <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
-                <span>音声がタイムラインで聞こえません</span>
-                <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="faq-answer" id="faq-answer-3" role="region" hidden>
-                <p>まずタイムラインのオーディオトラック（A1など）がミュートになっていないか確認してください。次に「ウィンドウ > オーディオメーター」でレベルが動いているか確認します。PCの音量設定も確認しましょう。</p>
-              </div>
-            </div>
-
-            <div class="faq-item" role="listitem">
-              <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
-                <span>プロジェクトファイルが開けなくなりました</span>
-                <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="faq-answer" id="faq-answer-4" role="region" hidden>
-                <p>素材ファイルの場所が変わると「メディアオフライン」になります。メニューから「ファイル > リンクとロケーション > すべてのメディアをリンク」で元のファイルを再指定してみましょう。念のためプロジェクトのバックアップを取る習慣をつけましょう（⌘ + S で上書き保存、⌘ + Shift + S で別名保存）。</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ===== お問い合わせ ===== -->
-        <section class="lesson-section fade-in" id="contact" aria-labelledby="contact-title">
-          <div class="lesson-header">
-            <span class="lesson-num">CONTACT</span>
-            <h2 class="lesson-title" id="contact-title">お問い合わせ</h2>
-          </div>
-          <p class="lesson-lead">ご質問・ご要望はこちらからお気軽にどうぞ。</p>
-          <div class="contact-form">
-            <div class="form-group">
-              <label class="form-label" for="contactName">お名前</label>
-              <input class="form-input" type="text" id="contactName" placeholder="山田 太郎" autocomplete="name" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="contactEmail">メールアドレス</label>
-              <input class="form-input" type="email" id="contactEmail" placeholder="example@email.com" autocomplete="email" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="contactMessage">メッセージ</label>
-              <textarea class="form-textarea" id="contactMessage" rows="5" placeholder="ご質問内容を入力してください"></textarea>
-            </div>
-            <button class="btn btn--primary" type="button">送信する</button>
-          </div>
-        </section>
-
-      </main>
-
-      <!-- ==============================
-           サイドバー（右 30%）
-      ============================== -->
-      <aside class="sidebar" id="sidebar" aria-label="サイドバー">
-
-        <!-- 進捗バー -->
-        <div class="sidebar-card">
-          <div class="sidebar-card__header">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            <span>学習進捗</span>
-          </div>
-          <div class="progress-display">
-            <div class="progress-num" id="progressNum" aria-live="polite">0%</div>
-            <div class="progress-bar-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="学習進捗">
-              <div class="progress-bar-fill" id="progressBarFill"></div>
-            </div>
-            <p class="progress-text">スクロールで自動更新されます</p>
-          </div>
-        </div>
-
-        <!-- コース目次 -->
-        <div class="sidebar-card">
-          <div class="sidebar-card__header">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-            <span>コース目次</span>
-          </div>
-          <nav aria-label="コース目次">
-            <ul class="toc-list" id="tocList">
-              <li class="toc-item" data-target="lesson-01">
-                <span class="toc-check" aria-label="完了">✓</span>
-                <a href="#lesson-01" class="toc-link">01. 前準備</a>
-              </li>
-              <li class="toc-item" data-target="lesson-02">
-                <span class="toc-check" aria-label="未完了"></span>
-                <a href="#lesson-02" class="toc-link">02. 素材を整える</a>
-              </li>
-              <li class="toc-item" data-target="lesson-03">
-                <span class="toc-check" aria-label="未完了"></span>
-                <a href="#lesson-03" class="toc-link">03. 手を加える</a>
-              </li>
-              <li class="toc-item" data-target="lesson-04">
-                <span class="toc-check" aria-label="未完了"></span>
-                <a href="#lesson-04" class="toc-link">04. 最終調整</a>
-              </li>
-              <li class="toc-item" data-target="lesson-05">
-                <span class="toc-check" aria-label="未完了"></span>
-                <a href="#lesson-05" class="toc-link">05. 書き出し・投稿</a>
-              </li>
-              <li class="toc-item" data-target="lesson-06">
-                <span class="toc-check" aria-label="未完了"></span>
-                <a href="#lesson-06" class="toc-link">06. まとめ・補足</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <!-- 困ったときのレスキュー -->
-        <div class="sidebar-card">
-          <div class="sidebar-card__header">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <span>困ったときのレスキュー</span>
-          </div>
-
-          <!-- アコーディオン：レスキューカード -->
-          <div class="rescue-list" role="list">
-            <div class="rescue-item" role="listitem">
-              <button class="rescue-question" aria-expanded="false" aria-controls="rescue-1">
-                <span>🖥️ 画面が消えた</span>
-                <svg class="rescue-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="rescue-answer" id="rescue-1" hidden>
-                <p>「ウィンドウ > ワークスペース > 編集」をクリックして標準レイアウトに戻してみましょう。</p>
-              </div>
-            </div>
-
-            <div class="rescue-item" role="listitem">
-              <button class="rescue-question" aria-expanded="false" aria-controls="rescue-2">
-                <span>🔇 音が出ない</span>
-                <svg class="rescue-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="rescue-answer" id="rescue-2" hidden>
-                <p>タイムラインのオーディオトラックのミュート（M）を解除。PCの音量も確認してください。</p>
-              </div>
-            </div>
-
-            <div class="rescue-item" role="listitem">
-              <button class="rescue-question" aria-expanded="false" aria-controls="rescue-3">
-                <span>🐌 プレビューが重い</span>
-                <svg class="rescue-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="rescue-answer" id="rescue-3" hidden>
-                <p>モニターの解像度を「1/2」に下げるか、Enterキーでプレビューをレンダリングしましょう。</p>
-              </div>
-            </div>
-
-            <div class="rescue-item" role="listitem">
-              <button class="rescue-question" aria-expanded="false" aria-controls="rescue-4">
-                <span>💾 保存場所がわからない</span>
-                <svg class="rescue-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-              <div class="rescue-answer" id="rescue-4" hidden>
-                <p>「ファイル > プロジェクト設定 > スクラッチディスク」でキャッシュや書き出し先を確認できます。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </aside>
-    </div>
-  </div>
-
-  <!-- =============================================
-       ショートカット一覧モーダル
-  ============================================== -->
-  <div
-    class="modal-overlay"
-    id="shortcutModal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="modalTitle"
-    aria-hidden="true"
-  >
+  <div class="modal-overlay" id="shortcutModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
     <div class="modal-panel">
       <div class="modal-header">
         <h2 class="modal-title" id="modalTitle">ショートカット一覧</h2>
@@ -807,25 +177,19 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
-
       <div class="modal-body">
         <p class="modal-note">ESC キーでも閉じられます。Mac は ⌘、Windowsは Ctrl に読み替えてください。</p>
-
         <div class="shortcut-table-wrap">
-          <!-- 基本操作 -->
           <h3 class="shortcut-category">基本操作</h3>
           <table class="shortcut-table" aria-label="基本操作のショートカット">
             <thead><tr><th>操作</th><th>ショートカット</th></tr></thead>
             <tbody>
-              <tr><td>新規プロジェクト</td><td><kbd class="key-badge">⌘</kbd> + <kbd class="key-badge">N</kbd></td></tr>
               <tr><td>保存</td><td><kbd class="key-badge">⌘</kbd> + <kbd class="key-badge">S</kbd></td></tr>
               <tr><td>元に戻す</td><td><kbd class="key-badge">⌘</kbd> + <kbd class="key-badge">Z</kbd></td></tr>
               <tr><td>素材を読み込む</td><td><kbd class="key-badge">⌘</kbd> + <kbd class="key-badge">I</kbd></td></tr>
               <tr><td>書き出し</td><td><kbd class="key-badge">⌘</kbd> + <kbd class="key-badge">M</kbd></td></tr>
             </tbody>
           </table>
-
-          <!-- 編集操作 -->
           <h3 class="shortcut-category">編集操作</h3>
           <table class="shortcut-table" aria-label="編集操作のショートカット">
             <thead><tr><th>操作</th><th>ショートカット</th></tr></thead>
@@ -834,22 +198,7 @@
               <tr><td>カットツール</td><td><kbd class="key-badge">C</kbd></td></tr>
               <tr><td>テキストツール</td><td><kbd class="key-badge">T</kbd></td></tr>
               <tr><td>再生 / 一時停止</td><td><kbd class="key-badge">Space</kbd></td></tr>
-              <tr><td>1フレーム戻る</td><td><kbd class="key-badge">←</kbd></td></tr>
-              <tr><td>1フレーム進む</td><td><kbd class="key-badge">→</kbd></td></tr>
               <tr><td>クリップをカット</td><td><kbd class="key-badge">⌘</kbd> + <kbd class="key-badge">K</kbd></td></tr>
-              <tr><td>プレビューレンダリング</td><td><kbd class="key-badge">Enter</kbd></td></tr>
-            </tbody>
-          </table>
-
-          <!-- タイムライン操作 -->
-          <h3 class="shortcut-category">タイムライン操作</h3>
-          <table class="shortcut-table" aria-label="タイムライン操作のショートカット">
-            <thead><tr><th>操作</th><th>ショートカット</th></tr></thead>
-            <tbody>
-              <tr><td>タイムラインを拡大</td><td><kbd class="key-badge">+</kbd></td></tr>
-              <tr><td>タイムラインを縮小</td><td><kbd class="key-badge">-</kbd></td></tr>
-              <tr><td>シーケンス先頭へ</td><td><kbd class="key-badge">Home</kbd></td></tr>
-              <tr><td>シーケンス末尾へ</td><td><kbd class="key-badge">End</kbd></td></tr>
             </tbody>
           </table>
         </div>
@@ -857,62 +206,27 @@
     </div>
   </div>
 
-  <!-- =============================================
-       フッター
-  ============================================== -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-top">
-        <!-- フッターロゴ -->
         <div class="footer-logo">
           <span class="footer-logo__title">Camera Roll to Vlog</span>
           <p class="footer-logo__desc">写真フォルダから、はじめる動画編集</p>
         </div>
-
-        <!-- サイトマップ（縦ツリー構造） -->
         <nav class="footer-nav" aria-label="サイトマップ">
           <ul class="footer-nav-list">
-            <li><a href="#hero">HOME</a></li>
-            <li>
-              <a href="#lessons">レッスン</a>
-              <ul class="footer-subnav">
-                <li><a href="#lesson-01">01. 前準備</a></li>
-                <li><a href="#lesson-02">02. 素材を整える</a></li>
-                <li><a href="#lesson-03">03. 手を加える</a></li>
-                <li><a href="#lesson-04">04. 最終調整</a></li>
-                <li><a href="#lesson-05">05. 書き出し・投稿</a></li>
-                <li><a href="#lesson-06">06. まとめ・補足</a></li>
-              </ul>
-            </li>
-            <li><a href="#faq">Q&amp;A</a></li>
-            <li><a href="#contact">お問い合わせ</a></li>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="lesson.html">レッスン</a></li>
+            <li><a href="faq.html">FAQ・レスキュー・用語集</a></li>
           </ul>
         </nav>
-
-        <!-- SNS（ダミー） -->
-        <div class="footer-sns">
-          <p class="footer-sns__label">SNS</p>
-          <div class="footer-sns__links">
-            <a href="#" class="sns-link" aria-label="X（Twitter）">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.76l7.73-8.835L1.254 2.25H8.08l4.313 5.7zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="#" class="sns-link" aria-label="Instagram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
-            </a>
-            <a href="#" class="sns-link" aria-label="YouTube">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor"/></svg>
-            </a>
-          </div>
-        </div>
       </div>
-
       <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2024 Camera Roll to Vlog. All rights reserved.</p>
+        <p class="footer-copy">&copy; 2026 Camera Roll to Vlog.</p>
       </div>
     </div>
   </footer>
 
-  <!-- JavaScriptファイル -->
   <script src="script.js"></script>
 </body>
 </html>
