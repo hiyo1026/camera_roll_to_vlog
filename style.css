@@ -8,33 +8,38 @@
    ============================================= */
 :root {
   /* カラーパレット */
-  --color-black:   #2f2a24;
-  --color-bg:      #f6efe3;
-  --color-border:  #dfd2bf;
-  --color-muted:   #8b8172;
-  --color-white:   #fffaf1;
-  --color-surface: #fbf3e7;
-  --color-panel:   #fffdf8;
-  --color-sage:    #8fa58a;
-  --color-sage-soft: #e8eee2;
-  --color-sky:     #b8d8df;
-  --color-sky-soft: #e7f2f4;
-  --color-terracotta: #c97856;
-  --color-terracotta-soft: #f5dfd2;
-  --color-rescue:  #f8e3c5;
+  --color-bg: #eeecea;
+  --color-surface: #f8f6f4;
+  --color-surface-white: #ffffff;
+  --color-text-primary: #4c3422;
+  --color-text-secondary: #6c7677;
+  --color-muted: #b3a59c;
+  --color-accent: #002e53;
+  --color-border: #d8d1cc;
+
+  /* 既存クラス用のエイリアス */
+  --color-black: var(--color-text-primary);
+  --color-white: var(--color-surface);
+  --color-panel: var(--color-surface-white);
+  --color-sage: var(--color-accent);
+  --color-sage-soft: var(--color-surface);
+  --color-sky: var(--color-text-secondary);
+  --color-sky-soft: var(--color-surface);
+  --color-terracotta: var(--color-text-primary);
+  --color-terracotta-soft: var(--color-surface);
+  --color-rescue: #f1e8df;
+  --color-hero-text: #f8f6f4;
+  --color-hero-overlay: rgba(0, 46, 83, 0.38);
 
   /* テキスト */
-  --color-text-primary:   #2f2a24;
-  --color-text-secondary: #5b5147;
-  --color-text-muted:     #8b8172;
+  --color-text-muted: var(--color-muted);
 
   /* アクセント */
-  --color-accent:         #5f7f63;
-  --color-accent-hover:   #48694e;
+  --color-accent-hover: #001f38;
 
   /* ハイライト（現在のレッスン） */
-  --color-highlight-bg:   #e8eee2;
-  --color-highlight-border: #5f7f63;
+  --color-highlight-bg: var(--color-surface);
+  --color-highlight-border: var(--color-accent);
 
   /* フォント */
   --font-base: "Noto Sans JP", sans-serif;
@@ -74,9 +79,9 @@
   --radius-lg: 12px;
 
   /* シャドウ */
-  --shadow-sm: 0 2px 8px rgba(75, 54, 36, 0.06);
-  --shadow-md: 0 10px 28px rgba(75, 54, 36, 0.10);
-  --shadow-lg: 0 18px 48px rgba(75, 54, 36, 0.16);
+  --shadow-sm: 0 2px 8px rgba(76, 52, 34, 0.06);
+  --shadow-md: 0 10px 28px rgba(76, 52, 34, 0.10);
+  --shadow-lg: 0 18px 48px rgba(76, 52, 34, 0.16);
 
   /* トランジション */
   --transition: 0.2s ease;
@@ -106,10 +111,6 @@ body {
   line-height: 1.8;
   color: var(--color-text-primary);
   background-color: var(--color-bg);
-  background-image:
-    linear-gradient(90deg, rgba(143, 165, 138, 0.05) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(143, 165, 138, 0.04) 1px, transparent 1px);
-  background-size: 44px 44px;
   /* アンチエイリアシングを改善 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -213,7 +214,7 @@ code {
 
 /* ゴーストボタン（枠線のみ） */
 .btn--ghost {
-  background-color: rgba(255, 250, 241, 0.82);
+  background-color: rgba(255, 255, 255, 0.82);
   color: var(--color-text-primary);
   border-color: var(--color-border);
 }
@@ -240,7 +241,7 @@ code {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(255, 250, 241, 0.92);
+  background-color: rgba(248, 246, 244, 0.92);
   border-bottom: 1px solid var(--color-border);
   backdrop-filter: blur(14px);
   height: var(--header-height);
@@ -404,29 +405,51 @@ code {
    7. ヒーローセクション
    ============================================= */
 .hero {
-  background:
-    radial-gradient(circle at 15% 20%, rgba(184, 216, 223, 0.38), transparent 30%),
-    radial-gradient(circle at 85% 18%, rgba(201, 120, 86, 0.18), transparent 28%),
-    linear-gradient(135deg, #fffaf1 0%, #f7eddc 56%, #e9f1ea 100%);
+  background-color: var(--color-accent);
   border-bottom: 1px solid var(--color-border);
+  min-height: calc(100vh - var(--header-height));
   padding: var(--space-24) var(--space-8);
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero__video,
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero__overlay {
+  background-color: var(--color-hero-overlay);
+  z-index: 1;
 }
 
 .hero__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
-  align-items: center;
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.hero__content {
+  max-width: 720px;
 }
 
 .hero__label {
   font-size: var(--fs-xs);
   letter-spacing: 0.12em;
-  color: var(--color-accent);
+  color: var(--color-hero-text);
   text-transform: uppercase;
   margin-bottom: var(--space-4);
 }
@@ -437,22 +460,24 @@ code {
   line-height: 1.1;
   letter-spacing: 0;
   margin-bottom: var(--space-4);
+  color: var(--color-hero-text);
+  text-shadow: 0 2px 22px rgba(0, 46, 83, 0.35);
 }
 .hero__title span {
   font-weight: 300;
-  color: var(--color-terracotta);
+  color: var(--color-bg);
 }
 
 .hero__copy {
   font-size: var(--fs-lg);
   font-weight: 400;
-  color: var(--color-text-secondary);
+  color: var(--color-hero-text);
   margin-bottom: var(--space-8);
 }
 .hero__copy em {
   font-style: normal;
   font-weight: 700;
-  color: var(--color-black);
+  color: var(--color-hero-text);
 }
 
 /* 特徴リスト */
@@ -467,14 +492,14 @@ code {
   align-items: center;
   gap: var(--space-3);
   font-size: var(--fs-sm);
-  color: var(--color-text-secondary);
+  color: var(--color-hero-text);
 }
 
 .check-mark {
   width: 14px;
   height: 14px;
-  border: 1.5px solid var(--color-sage);
-  background-color: var(--color-sage-soft);
+  border: 1.5px solid var(--color-hero-text);
+  background-color: rgba(248, 246, 244, 0.12);
   border-radius: 50%;
   flex-shrink: 0;
   position: relative;
@@ -486,110 +511,20 @@ code {
   top: 2px;
   width: 5px;
   height: 8px;
-  border: solid var(--color-black);
+  border: solid var(--color-hero-text);
   border-width: 0 1.5px 1.5px 0;
   transform: rotate(45deg);
 }
 
-/* ヒーロー装飾ボックス */
-.hero__deco {
-  display: flex;
-  justify-content: center;
-  perspective: 900px;
-}
-
-.deco-box {
-  background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.95), rgba(255, 250, 241, 0.9));
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-8);
-  width: 100%;
-  max-width: 360px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  box-shadow: var(--shadow-lg);
-  position: relative;
-  transform: rotate(1.5deg);
-}
-
-.deco-box::before,
-.deco-box::after {
-  content: "";
-  position: absolute;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background-color: rgba(255, 253, 248, 0.72);
-  z-index: -1;
-}
-
-.deco-box::before {
-  inset: 18px -22px -18px 24px;
-  transform: rotate(5deg);
-}
-
-.deco-box::after {
-  inset: -18px 28px 26px -18px;
-  transform: rotate(-5deg);
-}
-
-.deco-label {
-  font-size: var(--fs-xs);
-  letter-spacing: 0.1em;
+.hero .btn--primary {
+  background-color: var(--color-hero-text);
+  border-color: var(--color-hero-text);
   color: var(--color-accent);
-  font-weight: 700;
-}
-.deco-item {
-  font-size: var(--fs-sm);
-  font-weight: 500;
-  color: var(--color-text-secondary);
-}
-.deco-progress {
-  height: 22px;
-  background:
-    linear-gradient(90deg, transparent 0 14px, rgba(47, 42, 36, 0.07) 14px 15px, transparent 15px 100%),
-    var(--color-surface);
-  background-size: 32px 100%;
-  border-radius: 99px;
-  overflow: hidden;
-  margin-bottom: var(--space-2);
-  border: 1px solid var(--color-border);
-  padding: 4px;
-}
-.deco-bar {
-  height: 100%;
-  background: linear-gradient(90deg, var(--color-sage), var(--color-sky), var(--color-terracotta));
-  border-radius: 99px;
-  transition: width 0.8s ease;
 }
 
-.camera-roll-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-2);
-  margin: var(--space-2) 0 var(--space-5);
-}
-.camera-roll-grid span {
-  aspect-ratio: 1;
-  background:
-    linear-gradient(145deg, rgba(255,255,255,0.35), transparent 48%),
-    var(--color-sky-soft);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  box-shadow: inset 0 -16px 24px rgba(47, 42, 36, 0.05);
-}
-.camera-roll-grid span:nth-child(2),
-.camera-roll-grid span:nth-child(5) {
-  background:
-    linear-gradient(145deg, rgba(255,255,255,0.35), transparent 48%),
-    var(--color-sage-soft);
-}
-.camera-roll-grid span:nth-child(3),
-.camera-roll-grid span:nth-child(4) {
-  background:
-    linear-gradient(145deg, rgba(255,255,255,0.35), transparent 48%),
-    var(--color-terracotta-soft);
+.hero .btn--primary:hover {
+  background-color: var(--color-bg);
+  border-color: var(--color-bg);
 }
 
 /* =============================================
@@ -597,12 +532,12 @@ code {
    ============================================= */
 .home-section {
   padding: var(--space-16) 0;
-  background-color: var(--color-panel);
+  background-color: var(--color-surface-white);
   border-bottom: 1px solid var(--color-border);
 }
 
 .home-section--surface {
-  background-color: rgba(232, 238, 226, 0.55);
+  background-color: var(--color-surface);
 }
 
 .section-heading {
@@ -633,7 +568,7 @@ code {
 }
 
 .info-card {
-  background-color: var(--color-panel);
+  background-color: var(--color-surface-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-6);
@@ -658,7 +593,7 @@ code {
   gap: var(--space-4);
 }
 .simple-list li {
-  background-color: var(--color-panel);
+  background-color: var(--color-surface-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-5);
@@ -670,10 +605,10 @@ code {
   gap: var(--space-2);
   counter-reset: none;
   background:
-    linear-gradient(90deg, transparent 0 18px, rgba(47, 42, 36, 0.08) 18px 19px, transparent 19px 100%),
-    #3a342c;
+    linear-gradient(90deg, transparent 0 18px, rgba(248, 246, 244, 0.12) 18px 19px, transparent 19px 100%),
+    var(--color-accent);
   background-size: 48px 100%;
-  border: 1px solid #3a342c;
+  border: 1px solid var(--color-accent);
   border-radius: var(--radius-lg);
   padding: var(--space-4);
   box-shadow: var(--shadow-md);
@@ -685,27 +620,27 @@ code {
   justify-content: space-between;
   gap: var(--space-3);
   min-height: 132px;
-  background-color: var(--color-sage-soft);
-  border: 1px solid rgba(255, 250, 241, 0.38);
+  background-color: var(--color-surface);
+  border: 1px solid rgba(248, 246, 244, 0.5);
   border-radius: var(--radius-md);
   padding: var(--space-4);
   color: var(--color-text-primary);
-  box-shadow: inset 0 -8px 18px rgba(47, 42, 36, 0.05);
+  box-shadow: inset 0 -8px 18px rgba(76, 52, 34, 0.05);
 }
 .flow-list li:nth-child(2),
 .flow-list li:nth-child(5) {
-  background-color: var(--color-sky-soft);
+  background-color: var(--color-surface-white);
 }
 .flow-list li:nth-child(3),
 .flow-list li:nth-child(6) {
-  background-color: var(--color-terracotta-soft);
+  background-color: var(--color-surface);
 }
 .flow-list span {
   font-family: var(--font-mono);
   font-weight: 700;
   color: var(--color-text-muted);
-  background-color: rgba(255, 253, 248, 0.72);
-  border: 1px solid rgba(47, 42, 36, 0.08);
+  background-color: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(76, 52, 34, 0.08);
   border-radius: 999px;
   padding: 0 var(--space-2);
 }
@@ -742,7 +677,7 @@ code {
 
 /* ===== レッスンセクション ===== */
 .lesson-section {
-  background-color: var(--color-panel);
+  background-color: var(--color-surface-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-10);
@@ -759,7 +694,7 @@ code {
   top: 0;
   bottom: 0;
   width: 6px;
-  background: linear-gradient(180deg, var(--color-sage), var(--color-sky), var(--color-terracotta));
+  background-color: var(--color-accent);
 }
 
 /* レッスンヘッダー */
@@ -774,8 +709,8 @@ code {
   font-family: var(--font-mono);
   letter-spacing: 0.15em;
   color: var(--color-accent);
-  background-color: var(--color-sage-soft);
-  border: 1px solid rgba(95, 127, 99, 0.24);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 999px;
   padding: var(--space-1) var(--space-3);
   margin-bottom: var(--space-2);
@@ -798,8 +733,7 @@ code {
 }
 
 .lesson-intro {
-  background:
-    linear-gradient(135deg, rgba(255, 253, 248, 0.96), rgba(232, 238, 226, 0.6));
+  background-color: var(--color-surface-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-10);
@@ -831,7 +765,7 @@ code {
 }
 
 .lesson-meta-grid div {
-  background-color: rgba(232, 238, 226, 0.54);
+  background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-5);
@@ -839,11 +773,11 @@ code {
 }
 
 .lesson-meta-grid div:nth-child(2) {
-  background-color: rgba(231, 242, 244, 0.8);
+  background-color: var(--color-surface);
 }
 
 .lesson-meta-grid div:nth-child(3) {
-  background-color: rgba(245, 223, 210, 0.82);
+  background-color: var(--color-surface);
 }
 
 .lesson-meta-grid span {
@@ -900,8 +834,8 @@ code {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-panel);
-  border: 1px solid var(--color-sage);
+  background-color: var(--color-surface-white);
+  border: 1px solid var(--color-accent);
   border-radius: 50%;
   padding-top: 0;
   flex-shrink: 0;
@@ -924,10 +858,10 @@ code {
 /* ===== メディアプレースホルダー ===== */
 .media-placeholder {
   background:
-    linear-gradient(90deg, rgba(255, 253, 248, 0.72) 0 18px, transparent 18px 100%),
-    linear-gradient(180deg, rgba(184, 216, 223, 0.2), rgba(232, 238, 226, 0.35));
+    linear-gradient(90deg, rgba(255, 255, 255, 0.62) 0 18px, transparent 18px 100%),
+    var(--color-surface);
   background-size: 36px 100%, auto;
-  border: 1.5px dashed rgba(95, 127, 99, 0.45);
+  border: 1.5px dashed var(--color-border);
   border-radius: var(--radius-md);
   margin-bottom: var(--space-8);
   overflow: hidden;
@@ -960,9 +894,9 @@ code {
   font-size: var(--fs-xs);
   font-family: var(--font-mono);
   letter-spacing: 0.1em;
-  background-color: var(--color-sky-soft);
+  background-color: var(--color-surface-white);
   color: var(--color-accent);
-  border: 1px solid rgba(95, 127, 99, 0.18);
+  border: 1px solid var(--color-border);
   padding: var(--space-1) var(--space-3);
   border-radius: 99px;
 }
@@ -1002,8 +936,8 @@ code {
 
 .trouble-box {
   background-color: var(--color-rescue);
-  border-color: rgba(201, 120, 86, 0.28);
-  border-left: 3px solid var(--color-terracotta);
+  border-color: var(--color-border);
+  border-left: 3px solid var(--color-text-primary);
 }
 
 .trouble-box h3,
@@ -1018,8 +952,8 @@ code {
 }
 
 .mini-check {
-  background-color: rgba(255, 253, 248, 0.72);
-  border-color: rgba(143, 165, 138, 0.36);
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
 }
 
 .mini-check ul {
@@ -1042,7 +976,7 @@ code {
   top: 0.55em;
   width: 12px;
   height: 12px;
-  border: 1.5px solid var(--color-sage);
+  border: 1.5px solid var(--color-accent);
   border-radius: 2px;
   background-color: var(--color-white);
 }
@@ -1058,7 +992,7 @@ code {
   align-items: center;
   gap: var(--space-4);
   padding: var(--space-5) var(--space-6);
-  background-color: var(--color-sky-soft);
+  background-color: var(--color-surface);
   border-radius: var(--radius-md);
   margin-bottom: var(--space-8);
 }
@@ -1084,7 +1018,7 @@ code {
   justify-content: center;
   min-width: 28px;
   padding: 2px var(--space-2);
-  background-color: var(--color-panel);
+  background-color: var(--color-surface-white);
   border: 1px solid var(--color-border);
   border-bottom-width: 2px;
   border-radius: var(--radius-sm);
@@ -1252,14 +1186,14 @@ code {
   overflow-y: auto;
   /* スクロールバーをスリムに */
   scrollbar-width: thin;
-  scrollbar-color: var(--color-sage) transparent;
+  scrollbar-color: var(--color-accent) transparent;
 }
 .sidebar::-webkit-scrollbar { width: 4px; }
 .sidebar::-webkit-scrollbar-thumb { background-color: var(--color-border); border-radius: 2px; }
 
 /* サイドバーカード */
 .sidebar-card {
-  background-color: rgba(255, 253, 248, 0.9);
+  background-color: var(--color-surface-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
@@ -1303,7 +1237,7 @@ code {
 
 .current-step {
   background-color: var(--color-highlight-bg);
-  border: 1px solid rgba(95, 127, 99, 0.24);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-4);
   line-height: 1.6;
@@ -1312,18 +1246,18 @@ code {
 .progress-bar-wrap {
   height: 24px;
   background:
-    linear-gradient(90deg, transparent 0 14px, rgba(47, 42, 36, 0.08) 14px 15px, transparent 15px 100%),
-    #3a342c;
+    linear-gradient(90deg, transparent 0 14px, rgba(248, 246, 244, 0.16) 14px 15px, transparent 15px 100%),
+    var(--color-text-primary);
   background-size: 32px 100%;
   border-radius: 99px;
   overflow: hidden;
-  border: 1px solid rgba(47, 42, 36, 0.2);
+  border: 1px solid rgba(76, 52, 34, 0.2);
   padding: 4px;
 }
 
 .progress-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--color-sage), var(--color-sky), var(--color-terracotta));
+  background-color: var(--color-accent);
   border-radius: 99px;
   width: 0%;
   transition: width 0.4s ease;
@@ -1354,7 +1288,7 @@ code {
 /* 現在表示中のセクションをハイライト */
 .toc-item.is-active {
   background-color: var(--color-highlight-bg);
-  border-color: rgba(95, 127, 99, 0.25);
+  border-color: var(--color-border);
   box-shadow: inset 3px 0 0 var(--color-highlight-border);
   padding-left: var(--space-3);
 }
@@ -1388,15 +1322,15 @@ code {
   flex-direction: column;
   gap: 0;
   background-color: var(--color-rescue);
-  border: 1px solid rgba(201, 120, 86, 0.24);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
 }
 
 .rescue-item {
-  border-bottom: 1px solid rgba(201, 120, 86, 0.2);
+  border-bottom: 1px solid var(--color-border);
 }
-.rescue-item:first-child { border-top: 1px solid rgba(201, 120, 86, 0.2); }
+.rescue-item:first-child { border-top: 1px solid var(--color-border); }
 
 .rescue-question {
   display: flex;
@@ -1438,10 +1372,10 @@ code {
 }
 
 .guide-message {
-  background-color: var(--color-sky-soft);
+  background-color: var(--color-surface);
   border-radius: var(--radius-md);
   padding: var(--space-4);
-  border: 1px solid rgba(184, 216, 223, 0.55);
+  border: 1px solid var(--color-border);
 }
 
 .sidebar-link-list {
@@ -1487,7 +1421,7 @@ code {
   display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(47, 42, 36, 0.45);
+  background-color: rgba(0, 46, 83, 0.35);
   z-index: 9000;
   padding: var(--space-8);
   /* モーダルを中央に配置 */
@@ -1502,7 +1436,7 @@ code {
 }
 
 .modal-panel {
-  background-color: var(--color-panel);
+  background-color: var(--color-surface-white);
   border-radius: var(--radius-lg);
   max-width: 640px;
   width: 100%;
@@ -1531,7 +1465,7 @@ code {
   border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
-  background-color: var(--color-panel);
+  background-color: var(--color-surface-white);
   z-index: 1;
 }
 
@@ -1566,7 +1500,7 @@ code {
   color: var(--color-text-secondary);
   margin-bottom: var(--space-8);
   padding: var(--space-4) var(--space-5);
-  background-color: var(--color-sky-soft);
+  background-color: var(--color-surface);
   border-radius: var(--radius-sm);
 }
 
@@ -1600,7 +1534,7 @@ code {
   font-size: var(--fs-xs);
   color: var(--color-accent);
   border-bottom: 1px solid var(--color-border);
-  background-color: var(--color-sage-soft);
+  background-color: var(--color-surface);
 }
 
 .shortcut-table tbody td {
@@ -1622,7 +1556,7 @@ code {
    12. フッター
    ============================================= */
 .site-footer {
-  background-color: #2f2a24;
+  background-color: var(--color-text-primary);
   color: var(--color-white);
   margin-top: var(--space-16);
 }
@@ -1726,22 +1660,10 @@ code {
   /* ヒーロー：1カラム */
   .hero {
     padding: var(--space-12) var(--space-5);
+    min-height: calc(100svh - var(--header-height));
   }
   .hero__inner {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-  .hero__deco {
-    display: flex;
-  }
-  .deco-box {
-    transform: none;
-    max-width: none;
-    padding: var(--space-5);
-  }
-  .deco-box::before,
-  .deco-box::after {
-    display: none;
+    display: block;
   }
 
   .home-section {
